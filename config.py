@@ -5,7 +5,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:@localhost/project_web_facilito'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:123456@localhost/project_web_facilito'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -13,6 +13,9 @@ class DevelopmentConfig(Config):
     MAIL_USE_TLS = True
     MAIL_USERNAME = config('MAIL_USERNAME', default='correo@host.com')
     MAIL_PASSWORD = config('MAIL_PASSWORD', default='password123')
+
+class Production(Config):
+    DEBUG = False
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'mysql://root:@localhost/project_web_facilito_test'
